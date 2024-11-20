@@ -2,7 +2,6 @@
 #include <iomanip>
 using namespace std;
 
-// Function to display available currencies
 void displayCurrencies() {
     cout << "Available currencies:" << endl;
     cout << "1. USD (US Dollar)" << endl;
@@ -14,10 +13,7 @@ void displayCurrencies() {
     cout << endl;
 }
 
-// Function to get conversion rate
 double getConversionRate(int fromCurrency, int toCurrency) {
-    // Conversion rates (example values)
-    // Updated the array to include PKR as currency 6
     double rates[6][6] = {
         {1.0, 0.92, 0.77, 83.0, 148.5, 290.0},  // From USD
         {1.09, 1.0, 0.84, 90.5, 161.5, 314.0},  // From EUR
@@ -36,7 +32,6 @@ int main() {
     cout << "=== Currency Converter ===" << endl;
     displayCurrencies();
 
-    // Input from user
     cout << "Enter the number corresponding to your source currency: ";
     cin >> fromCurrency;
     cout << "Enter the number corresponding to your target currency: ";
@@ -44,17 +39,14 @@ int main() {
     cout << "Enter the amount to convert: ";
     cin >> amount;
 
-    // Validation for currency selection
     if (fromCurrency < 1 || fromCurrency > 6 || toCurrency < 1 || toCurrency > 6) {
         cout << "Invalid currency selection!" << endl;
         return 1;  // Exit if invalid currency is selected
     }
 
-    // Conversion
     double rate = getConversionRate(fromCurrency, toCurrency);
     convertedAmount = amount * rate;
 
-    // Display result
     cout << fixed << setprecision(2);  // Format the output to two decimal places
     cout << amount << " in source currency is equal to " << convertedAmount << " in target currency." << endl;
 
